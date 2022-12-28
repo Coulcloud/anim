@@ -1,0 +1,431 @@
+﻿<Window x:Class="amimation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:amimation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="https://catherineasquithgallery.com/uploads/posts/2021-02/1612884119_42-p-fon-novogodnii-krasnii-zelenii-53.jpg"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+
+    <Window.Resources>
+
+
+
+
+        <PathGeometry x:Key="FirstFire">
+            <PathFigure StartPoint="380,50" IsClosed="True">
+                <LineSegment Point="440,60" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="SecondFire">
+            <PathFigure StartPoint="380,150" IsClosed="True">
+                <LineSegment Point="440,160" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="ThirdFire">
+            <PathFigure StartPoint="380,250" IsClosed="True">
+                <LineSegment Point="440,260" />
+            </PathFigure>
+        </PathGeometry>
+
+
+
+        <PathGeometry x:Key="FireOne">
+            <PathFigure StartPoint="380,70" IsClosed="True">
+                <LineSegment Point="380,71" />
+                <LineSegment Point="379,71" />
+                <LineSegment Point="379,70" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireTwo">
+            <PathFigure StartPoint="380,170" IsClosed="True">
+                <LineSegment Point="380,171" />
+                <LineSegment Point="379,171" />
+                <LineSegment Point="379,170" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireThree">
+            <PathFigure StartPoint="380,270" IsClosed="True">
+                <LineSegment Point="380,271" />
+                <LineSegment Point="379,271" />
+                <LineSegment Point="379,270" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireFour">
+            <PathFigure StartPoint="430,270" IsClosed="True">
+                <LineSegment Point="430,271" />
+                <LineSegment Point="429,271" />
+                <LineSegment Point="429,270" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireFive">
+            <PathFigure StartPoint="430,170" IsClosed="True">
+                <LineSegment Point="430,171" />
+                <LineSegment Point="429,171" />
+                <LineSegment Point="429,170" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireSix">
+            <PathFigure StartPoint="430,270" IsClosed="True">
+                <LineSegment Point="430,271" />
+                <LineSegment Point="429,271" />
+                <LineSegment Point="429,270" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireSeven">
+            <PathFigure StartPoint="400,250" IsClosed="True">
+                <LineSegment Point="400,251" />
+                <LineSegment Point="401,251" />
+                <LineSegment Point="401,250" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireEight">
+            <PathFigure StartPoint="400,150" IsClosed="True">
+                <LineSegment Point="400,151" />
+                <LineSegment Point="401,151" />
+                <LineSegment Point="401,150" />
+            </PathFigure>
+        </PathGeometry>
+
+        <PathGeometry x:Key="FireNine">
+            <PathFigure StartPoint="400,50" IsClosed="True">
+                <LineSegment Point="400, 51" />
+                <LineSegment Point="401, 51" />
+                <LineSegment Point="401, 50" />
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="FireTen">
+            <PathFigure StartPoint="450,50" IsClosed="True">
+                <LineSegment Point="450, 51" />
+                <LineSegment Point="451, 51" />
+                <LineSegment Point="451, 50" />
+            </PathFigure>
+        </PathGeometry>
+
+
+
+    </Window.Resources>
+
+    <Canvas>
+        <TextBlock
+  Name="MyFadingText" 
+  Width="362" Height="131" FontSize="36" FontWeight="Bold" Foreground="WhiteSmoke" Canvas.Top="153">
+            С новым годом
+
+
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+            Storyboard.TargetName="MyFadingText" 
+            Storyboard.TargetProperty="(TextBlock.Opacity)"
+            From="1.0" To="0.0" Duration="0:0:5" 
+            AutoReverse="True" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+        <TextBlock
+  Name="MyChangingColorText" 
+  Width="454" Height="100" FontSize="48" FontWeight="Bold" Canvas.Top="26" HorizontalAlignment="Left" VerticalAlignment="Center">
+  С новым годом
+            <TextBlock.Foreground>
+                <SolidColorBrush x:Name="MySolidColorBrush" Color="Maroon" />
+            </TextBlock.Foreground>
+
+  <!-- Animates the text block's color. -->
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+            Storyboard.TargetName="MySolidColorBrush"
+            Storyboard.TargetProperty="Color"
+            From="DarkOrange" To="SteelBlue" Duration="0:0:5"
+            AutoReverse="True" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+        <TextBlock
+  Name="MyRotatingText" 
+  Width="490" Height="52" FontSize="48" FontWeight="Bold" Foreground="White" Canvas.Left="382" Canvas.Top="232" 
+  >
+  Happy new year
+            <TextBlock.RenderTransform>
+                <RotateTransform x:Name="MyRotateTransform" Angle="0" CenterX="230" CenterY="25"/>
+            </TextBlock.RenderTransform>
+
+        <!-- Animates the text block's rotation. -->
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+            Storyboard.TargetName="MyRotateTransform" 
+            Storyboard.TargetProperty="(RotateTransform.Angle)"
+            From="0.0" To="360" Duration="0:0:10" 
+            RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        </TextBlock>
+
+
+        <Image Source="/pngegg.png" Height="454" Width="560" Canvas.Left="181" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-20"/>
+
+
+        <Path x:Name="fireOne" Stroke="Red" StrokeThickness="3" Fill="Red" Visibility="Hidden" Data="{StaticResource ResourceKey=FireOne}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path  x:Name="fireTwo" Stroke="Yellow" StrokeThickness="3" Fill="Yellow" Visibility="Hidden" Data="{StaticResource ResourceKey=FireTwo}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path  x:Name="fireThree" Stroke="Blue" StrokeThickness="3" Fill="Blue" Visibility="Hidden" Data="{StaticResource ResourceKey=FireThree}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path  x:Name="fireFour" Stroke="Purple" StrokeThickness="3" Fill="Purple" Visibility="Hidden" Data="{StaticResource ResourceKey=FireFour}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path x:Name="fireFive" Stroke="White" StrokeThickness="3" Fill="White" Visibility="Hidden" Data="{StaticResource ResourceKey=FireFive}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path x:Name="fireSix" Stroke="Pink" StrokeThickness="3" Fill="Pink"  Visibility="Hidden" Data="{StaticResource ResourceKey=FireSix}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path x:Name="fireSeven" Stroke="Orange" StrokeThickness="3" Fill="Orange" Visibility="Hidden" Data="{StaticResource ResourceKey=FireSeven}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path x:Name="fireEight" Stroke="CornflowerBlue" StrokeThickness="3" Fill="CornflowerBlue" Visibility="Hidden" Data="{StaticResource ResourceKey=FireEight}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+        <Path x:Name="fireNine" Stroke="GreenYellow" StrokeThickness="3" Fill="GreenYellow" Visibility="Hidden" Data="{StaticResource ResourceKey=FireNine}" >
+
+            <Path.Triggers>
+
+                <EventTrigger RoutedEvent="Loaded">
+
+                    <BeginStoryboard>
+
+                        <Storyboard RepeatBehavior="Forever">
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="StrokeThickness"
+                                From="10" To="0" Duration="0:0:1"
+                                AutoReverse="True"/>
+
+                        </Storyboard>
+
+                    </BeginStoryboard>
+
+                </EventTrigger>
+
+            </Path.Triggers>
+
+        </Path>
+
+
+        <Button Content="Гирлянда" Click="Button_Click"/>
+
+
+
+
+    </Canvas>
+</Window>
